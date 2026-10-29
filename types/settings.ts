@@ -27,6 +27,7 @@ export interface Settings {
   maxViewsEnabled: boolean;
   maxViews: number;
   shortenEnabled: boolean;
+  screenshotContextMenuEnabled: boolean;
   imageConversionEnabled: boolean;
   imageConversionFormat: ImageFormat;
   imageConversionQuality: number;
@@ -42,6 +43,7 @@ export const DEFAULT_SETTINGS: Settings = {
   maxViewsEnabled: false,
   maxViews: 0,
   shortenEnabled: false,
+  screenshotContextMenuEnabled: true,
   imageConversionEnabled: false,
   imageConversionFormat: 'webp',
   imageConversionQuality: 80,
@@ -57,9 +59,21 @@ export const SETTINGS_KEYS: (keyof Settings)[] = [
   'maxViewsEnabled',
   'maxViews',
   'shortenEnabled',
+  'screenshotContextMenuEnabled',
   'imageConversionEnabled',
   'imageConversionFormat',
   'imageConversionQuality',
   'imageCompressionEnabled',
   'imageCompressionQuality',
 ];
+
+export interface UploadHistoryItem {
+  id: string;
+  url: string;
+  filename: string;
+  timestamp: number;
+  thumbnail?: string;
+  size?: number;
+}
+
+export const MAX_HISTORY_ITEMS = 5;

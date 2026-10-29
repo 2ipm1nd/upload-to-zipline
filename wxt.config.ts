@@ -13,12 +13,13 @@ export default defineConfig({
   }),
   manifest: {
     name: 'Upload to Zipline',
-    description: 'Upload media to Zipline from the right-click menu.',
+    description: 'Upload media, screenshots, and clipboard to Zipline.',
     permissions: [
       'storage',
       'contextMenus',
       'activeTab',
       'clipboardWrite',
+      'clipboardRead',
       'notifications',
       'scripting',
     ],
@@ -29,6 +30,26 @@ export default defineConfig({
     icons: {
       48: '/icon/48.png',
       128: '/icon/128.png',
+    },
+    commands: {
+      'capture-area': {
+        suggested_key: {
+          default: 'Alt+Shift+S',
+        },
+        description: '選取區域截圖並上傳至 Zipline',
+      },
+      'capture-visible': {
+        suggested_key: {
+          default: 'Alt+Shift+V',
+        },
+        description: '截取當前可見畫面並上傳至 Zipline',
+      },
+      'upload-clipboard': {
+        suggested_key: {
+          default: 'Alt+Shift+U',
+        },
+        description: '上傳剪貼簿圖片至 Zipline',
+      },
     },
     browser_specific_settings: {
       gecko: {

@@ -127,7 +127,7 @@ async function onSave() {
           id="expiryTime"
           v-model="settings.expiryTime"
           class="w-full bg-[#0a0a0c] border border-border rounded-md px-3 py-2 text-sm
-                 focus:outline-none focus:border-accent appearance-none"
+          focus:outline-none focus:border-accent appearance-none"
         >
           <option v-for="preset in EXPIRY_PRESETS" :key="preset.value" :value="preset.value">
             {{ preset.label }}
@@ -230,10 +230,15 @@ async function onSave() {
       </details>
     </section>
 
-    <section class="bg-panel border border-border rounded-card p-4">
-      <h2 class="text-[10.5px] tracking-[0.07em] uppercase font-semibold text-text-muted mb-3">
+    <section class="bg-panel border border-border rounded-card p-4 space-y-3">
+      <h2 class="text-[10.5px] tracking-[0.07em] uppercase font-semibold text-text-muted">
         Context Menu
       </h2>
+      <ToggleSwitch
+        id="screenshotContextMenuEnabled"
+        v-model="settings.screenshotContextMenuEnabled"
+        label="Page screenshot & clipboard menus"
+      />
       <ToggleSwitch
         id="shortenEnabled"
         v-model="settings.shortenEnabled"
@@ -244,7 +249,7 @@ async function onSave() {
     <button
       type="submit"
       class="w-full py-2.5 bg-accent hover:bg-accent-hover text-white rounded-md text-sm font-medium
-             active:translate-y-px transition-colors"
+             active:translate-y-px transition-colors cursor-pointer"
     >
       Save Settings
     </button>
